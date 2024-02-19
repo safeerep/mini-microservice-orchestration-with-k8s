@@ -7,6 +7,7 @@ export default () => {
         placeOrder
     } = controllers;
 
+    router.use('/order')
     router.post('/place-order', placeOrder)
     
     return router;
