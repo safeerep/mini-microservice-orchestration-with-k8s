@@ -8,6 +8,7 @@ export default () => {
         getCartItems
     } = controllers;
 
+    router.use('/cart')
     router.post('/add-to-cart', addToCart)
     router.get('/get-cart-items/:userId', getCartItems)
 
