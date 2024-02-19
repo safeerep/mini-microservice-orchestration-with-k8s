@@ -9,6 +9,7 @@ export default ( ) => {
         getProducts
     } = controllers;
 
+    router.use('/product')
     router.post('/add-product', addProduct)
     router.get('/get-one-product/:productId', getOneProduct)
     router.get('/get-products', getProducts)
