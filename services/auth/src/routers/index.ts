@@ -11,7 +11,7 @@ export default () => {
     router.get(`/`, (req: Request, res: Response) => {
         res.send('ok safee, fine')
     })
-    
+    router.use('/auth')
     router.post('/sign-up', signUp) 
     router.post('/login', login) 
 
