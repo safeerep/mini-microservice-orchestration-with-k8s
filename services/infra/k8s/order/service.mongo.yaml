@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name:  mini-e-commerce-order-db
+spec:
+  selector:
+    app: order-db
+  ports:
+  - name:  order-db
+    protocol: TCP
+    port:  27017
+    targetPort: 27017

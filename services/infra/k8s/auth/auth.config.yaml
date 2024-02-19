@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+data:
+  PORT: "4000"
+  MONGO_URI: "mongodb://mini-e-commerce-auth-db:27017/orchestrationExpAuth"
+  SALT_ROUNDS: "10"
+  SESSION_SECRET: "writtenBySafeer"
+  JWT_TOKEN_SECRET: "9f895f69b264aff29593af6a1076401c3005cc269"

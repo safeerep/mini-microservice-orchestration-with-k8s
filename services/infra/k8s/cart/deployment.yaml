@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-e-commerce-cart
+  labels:
+    name: cart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart
+  template:
+    metadata:
+      labels: 
+        app: cart
+    spec:
+      containers:
+      - image: safeerep/cart-orchestration-experiment:latest
+        name: cart
+        envFrom:
+        - configMapRef:
+            name: cart-config

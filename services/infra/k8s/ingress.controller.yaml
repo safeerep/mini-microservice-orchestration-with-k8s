@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-controller
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kubernetes.docker.internal
+    http:
+      paths:
+      - path: /api/v1/auth
+        pathType: Prefix
+        backend:
+          service:
+            name: mini-e-commerce-auth
+            port:
+              number: 4000
+      - path: /api/v1/product
+        pathType: Prefix
+        backend:
+          service:
+            name: mini-e-commerce-product
+            port:
+              number: 4001
+      - path: /api/v1/cart
+        pathType: Prefix
+        backend:
+          service:
+            name: mini-e-commerce-cart
+            port:
+              number: 4002
+      - path: /api/v1/order
+        pathType: Prefix
+        backend:
+          service:
+            name: mini-e-commerce-order
+            port:
+              number: 4003

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-e-commerce-order
+  labels:
+    name: order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels: 
+        app: order
+    spec:
+      containers:
+      - image: safeerep/order-orchestration-experiment:latest
+        name: order
+        envFrom:
+        - configMapRef:
+            name: order-config

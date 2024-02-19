@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-e-commerce-product
+  labels:
+    name: product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels: 
+        app: product
+    spec:
+      containers:
+      - image: safeerep/product-orchestration-experiment:latest
+        name: product
+        envFrom:
+        - configMapRef:
+            name: product-config
